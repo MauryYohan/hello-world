@@ -11,12 +11,12 @@
     <h1>Veuillez choisir un continent : </h1>
     <img src=" {{ asset('images/world-continents-map.png') }} " usemap="#world-map">
     <map name="world-map">
-        <area class="continent" target="_self" alt="Afrique" title="Afrique" href="#" coords="473,223,444,253,446,290,464,305,500,307,526,403,602,398,608,298,603,282,586,284,576,264,566,244,565,233,549,223,514,222,509,217" shape="poly">
-        <area class="continent" target="_self" alt="Amerique du Nord" title="Amerique du Nord" href="{{ path('app_continent', {continentId: 1}) }}" coords="77,106,77,176,82,218,115,276,306,298,314,278,337,270,373,191,387,159,426,126,456,95,464,52,382,34,180,66" shape="poly">
-        <area class="continent" target="_self" alt="Amerique du Sud" title="Amerique du Sud" href="#" coords="299,459,426,462,424,273,317,279,302,301,291,319" shape="poly">
-        <area class="continent" target="_self" alt="Asie" title="Asie" href="#" coords="959,54,555,48,554,111,559,137,551,148,542,157,532,164,542,167,542,178,540,187,552,187,557,204,546,213,557,228,566,233,571,250,580,269,588,283,603,279,608,292,665,301,713,318,735,335,778,341,801,335,812,335,821,301,936,123" shape="poly">
-        <area class="continent" target="_self" alt="Europe" title="Europe" href="#" coords="507,46,450,109,427,131,461,228,473,222,507,216,514,222,548,219,545,211,554,204,552,190,540,187,540,171,532,163,549,150,559,137,552,106,555,46" shape="poly">
-        <area class="continent" target="_self" alt="Oceanie" title="Oceanie" href="#" coords="749,358,753,431,933,440,928,310,820,310,812,335,795,336,778,343" shape="poly">
+        <area class="continent" target="_self" alt="Afrique" title="Afrique" href="{{ path('app_continent', {continentId: 1}) }}" coords="473,223,444,253,446,290,464,305,500,307,526,403,602,398,608,298,603,282,586,284,576,264,566,244,565,233,549,223,514,222,509,217" shape="poly">
+        <area class="continent" target="_self" alt="Amerique du Nord" title="Amerique du Nord" href="{{ path('app_continent', {continentId: 2}) }}" coords="77,106,77,176,82,218,115,276,306,298,314,278,337,270,373,191,387,159,426,126,456,95,464,52,382,34,180,66" shape="poly">
+        <area class="continent" target="_self" alt="Amerique du Sud" title="Amerique du Sud" href="{{ path('app_continent', {continentId: 3}) }}" coords="299,459,426,462,424,273,317,279,302,301,291,319" shape="poly">
+        <area class="continent" target="_self" alt="Asie" title="Asie" href="{{ path('app_continent', {continentId: 4}) }}" coords="959,54,555,48,554,111,559,137,551,148,542,157,532,164,542,167,542,178,540,187,552,187,557,204,546,213,557,228,566,233,571,250,580,269,588,283,603,279,608,292,665,301,713,318,735,335,778,341,801,335,812,335,821,301,936,123" shape="poly">
+        <area class="continent" target="_self" alt="Europe" title="Europe" href="{{ path('app_continent', {continentId: 5}) }}" coords="507,46,450,109,427,131,461,228,473,222,507,216,514,222,548,219,545,211,554,204,552,190,540,187,540,171,532,163,549,150,559,137,552,106,555,46" shape="poly">
+        <area class="continent" target="_self" alt="Oceanie" title="Oceanie" href="{{ path('app_continent', {continentId: 6}) }}" coords="749,358,753,431,933,440,928,310,820,310,812,335,795,336,778,343" shape="poly">
 
     </map>
 </div>
