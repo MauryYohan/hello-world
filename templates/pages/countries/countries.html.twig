@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<h1> Continent | {{ continent.getNameFr() }} </h1>
+{% if countries|length > 0 %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Alpha2</th>
+            <th>Alpha3</th>
+            <th>Nombres d'habitants</th>
+            <th>Nom (FR)</th>
+            <th>Nom (EN)</th>
+        </tr>
+    {% for country in countries %}
+        <tr>
+            <td> {{ country.getId() }} </td>
+            <td> {{ country.getAlpha2() }} </td>
+            <td> {{ country.getAlpha3() }} </td>
+            <td> {{ country.getNbHab() }} </td>
+            <td> {{ country.getNameFr() }} </td>
+            <td> {{ country.getNameEn() }} </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+{% endblock %}

@@ -19,7 +19,7 @@ class CountryRepository extends ServiceEntityRepository
         parent::__construct($registry, Country::class);
     }
 
-    // /**
+    // /** No Working function
     //  * @return Country[] Returns an array of Country objects
     //  */
     /*
@@ -36,6 +36,9 @@ class CountryRepository extends ServiceEntityRepository
     }
     */
 
+    // /**
+    //  * @return Country Return a Country object
+    //  */
     /*
     public function findOneBySomeField($value): ?Country
     {
@@ -47,4 +50,24 @@ class CountryRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllByContinentId(int $continentId) 
+    {
+        $queryBuilder = $this->createQueryBuilder('c')
+            ->where('p.continent_id = :id')
+            ->setParameter('id', $continentId);
+
+        $query = $queryBuilder->getQuery();
+        return $query->execute();
+
+        /*
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.continent = :id')
+            ->setParameter('id', $continentId)
+            ->getQuery()
+            ->getResult()
+        ;
+        */
+    }
+
 }
