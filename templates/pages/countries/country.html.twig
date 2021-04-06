@@ -2,16 +2,47 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .custom-line{
+        margin-bottom: 1rem;
+    }
 </style>
-<h1> Pays | {{ country.getNameFr() }} </h1>
-<ul>
-    <li> {{ country.getId() }} </li>
-    <li> {{ country.getAlpha2() }} </li>
-    <li> {{ country.getAlpha3() }} </li>
-    <li> {{ country.getNbHab() }} </li>
-    <li> {{ country.getNameFr() }} </li>
-    <li> {{ country.getNameEn() }} </li>
-</ul>
+<div class="container">
+
+    <div class="custom-line"></div> 
+
+    <div class="text-center"> 
+        <div class="d-flex align-content-center align-items-center">
+            <div class="flex-shrink-0">
+                <img src="{{ asset('images/flags/' ~imgName~ '.webp') }}" alt="{{ alt }}" width='125px' />
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <h1> {{ country.nameEn }} </h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="custom-line"></div> 
+
+    <div class="row">
+        <div class="col-sm-9">
+            {# IMG #}
+            <img src="{{ asset('images/countries/' ~imgName~ '.png') }}" alt="{{ alt }}" width='768px' />
+        </div>
+        <div class="col-sm-3">
+            {# INFOS #}
+            <p> <b>ID :</b> {{ country.id }} </p>
+            <p> Code Pays : {{ country.alpha3 }} </p>
+            <p> Nombre d'habitants : {{ country.nbHab }} </p>
+            <p> Nom du Pays en Français : {{ country.nameFr }} </p>
+            <p> Nom du Pays en Anglais : {{ country.nameEn }} </p>
+            {% if country.getTimezones %}
+                <h2>Timezones</h2>
+                {% for timezone in country.getTimezones %}
+                    <p> Timezone : {{ timezone.detail }} </p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+</div>
 {% endblock %}

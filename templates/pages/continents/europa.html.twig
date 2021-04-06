@@ -1,12 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .world-map area.continent:hover { color: #FFFFFF; }
-</style>
-<h1>Continent Map</h1>
-<div class="continent-map">
-    <h1>Choisissez maintenant un pays : </h1>
+
+<h1 class="text-center" >Continent Map · Choix du pays</h1>
+<div class="continent-map text-center">
     <img src=" {{ asset('images/europa.png') }} " usemap="#continent-map">
     <map name="continent-map">
         <!-- TODO -->

@@ -74,9 +74,35 @@ class PagesController extends AbstractController
         return $this->render('pages/countries/country.html.twig', ['country' => $country]);
     }
 
+    /**
+     * @Route("/country/{countryName}", name="app_country_detail")
+     */
+    public function countryByName(string $countryName): Response
+    {
+        $country = $this->getDoctrine()
+            ->getRepository(Country::class)
+            ->findOneBy(array('name_en' => $countryName));
+
+        $imgName = str_replace(' ', '', $countryName);
+        // dd($imgName);
+        $lienImg = "images/flags/" . $imgName . ".webp";
+        // dd($lienImg);
+        $altImg = $imgName . "Flag";
+
+        if (!$country) { $this->createNotFoundException('No country found with this name : ' . $countryName); }
+        //dd($country);
+        return $this->render('pages/countries/country.html.twig', 
+        [
+            'country' => $country, 
+            'lien' => $lienImg, 
+            'alt' => $altImg, 
+            'imgName' => $imgName
+        ]);
+    }
+
     
     /**
-     * @Route("/country/list/{continentId<[1-6]>}", name="app_country_list")
+     * @Route("/countries/{continentId<[1-6]>}", name="app_continent_detail")
      */
     public function countryList(int $continentId): Response
     {
@@ -91,7 +117,7 @@ class PagesController extends AbstractController
             [
                 'continent' => $continent, 
                 'countries' => $countries
-            ]);        
+            ]);
         
     }
 }

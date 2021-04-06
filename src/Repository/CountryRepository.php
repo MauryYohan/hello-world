@@ -51,11 +51,12 @@ class CountryRepository extends ServiceEntityRepository
     }
     */
 
-    public function findAllByContinentId(int $continentId) 
+    public function findOneByCountryName(string $countryName) 
     {
+        // name_fr
         $queryBuilder = $this->createQueryBuilder('c')
-            ->where('p.continent_id = :id')
-            ->setParameter('id', $continentId);
+            ->where('c.name_fr = :name')
+            ->setParameter('name', $countryName);
 
         $query = $queryBuilder->getQuery();
         return $query->execute();

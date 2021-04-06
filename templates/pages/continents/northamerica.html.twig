@@ -1,37 +1,96 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .world-map area.continent:hover { color: #FFFFFF; }
-</style>
-<h1>Continent Map</h1>
-<div class="continent-map">
-    <h1>Choisissez maintenant un pays : </h1>
+
+<h1 class="text-center" >Continent Map · Choix du pays</h1>
+<div class="continent-map text-center">
     <img src=" {{ asset('images/north-america.png') }} " usemap="#continent-map">
     <map name="continent-map">
         <area 
-            target="_self" alt="Alaska(USA)" title="Alaska(USA)" href="#" shape="poly"
+            target="_self" alt="Alaska(United States)" title="Alaska(United States)" shape="poly"
+            href="{{ path('app_country_detail', {countryName: 'United States'}) }}" 
             coords="199,159,149,227,154,235,154,249,166,251,167,275,171,289,168,298,160,304,152,294,151,283,150,267,134,226,118,213,103,205,96,202,73,202,48,196,29,183,32,179,72,192,73,183,68,174,75,140,93,138,108,115,128,106,135,106,160,111,170,117" 
         >
         <area 
-            target="_self" alt="Canada" title="Canada" href="#" shape="poly"
+            target="_self" alt="Canada" title="Canada" shape="poly"
+            href="{{ path('app_country_detail', {countryName: 'Canada'}) }}" 
             coords="162,304,146,292,144,312,159,311,164,327,155,336,172,370,181,366,201,373,224,379,246,385,270,389,298,393,323,393,348,393,361,395,381,398,417,404,428,410,436,411,439,428,438,432,435,442,460,427,456,421,467,419,476,406,479,399,500,390,505,382,504,364,512,361,520,372,528,375,543,383,567,346,599,304,389,130,371,122,367,104,369,61,350,64,269,131,236,174,199,159,150,227,155,234,154,248,166,250,167,273,171,287,167,296"
         >
-        <area target="_self" alt="Greenland" title="Greenland" href="#" coords="413,18,389,30,372,65,369,89,369,109,371,122,389,129,444,164,515,220,549,200,517,79,476,45" shape="poly">
-        <area target="_self" alt="USA" title="USA" href="#" coords="182,368,169,376,156,420,151,444,151,461,162,505,187,527,204,528,229,543,251,545,254,542,268,543,281,564,291,572,293,564,300,562,310,568,316,580,323,595,338,599,403,569,477,595,486,583,543,383,526,375,520,372,512,362,504,365,506,380,500,390,479,399,468,418,458,422,461,428,435,443,437,432,435,412,417,404,348,394,291,393,246,385" shape="poly">
-        <area target="_self" alt="Mexico" title="Mexico" href="#" coords="187,528,202,581,239,633,264,624,276,644,275,657,293,679,316,688,357,698,391,704,389,697,393,687,400,683,394,675,397,670,410,666,414,660,422,667,424,630,414,629,397,636,391,660,382,662,366,667,354,664,341,647,342,641,336,633,337,600,323,594,309,567,301,563,293,565,292,573,280,565,267,544,254,542,252,545,229,544,205,529" shape="poly">
-        <area target="_self" alt="Guatemala" title="Guatemala" href="#" coords="409,667,411,683,420,686,413,693,413,699,408,706,392,705,389,696,392,687,400,683,395,675,397,668" shape="poly">
-        <area target="_self" alt="Belize" title="Belize" href="#" coords="414,660,409,666,411,682,417,683,420,673" shape="poly">
-        <area target="_self" alt="Salvador" title="Salvador" href="#" coords="413,700,407,705,415,711,428,708,425,703" shape="poly">
-        <area target="_self" alt="Honduras" title="Honduras" href="#" coords="420,688,414,693,413,699,425,703,428,708,431,711,438,701,443,698,448,690,454,691,461,685,453,680,437,680,424,683" shape="poly">
-        <area target="_self" alt="Nigaragua" title="Nigaragua" href="#" coords="430,711,446,726,465,726,464,692,461,685,455,690,449,690,445,696,438,700" shape="poly">
-        <area target="_self" alt="Costa Rica" title="Costa Rica" href="#" coords="447,727,446,734,453,739,468,749,476,748,474,742,476,734,464,725" shape="poly">
-        <area target="_self" alt="Panama" title="Panama" href="#" coords="476,734,474,741,476,748,486,752,492,756,499,752,520,750,523,742,522,735,513,729" shape="poly">
-        <area target="_self" alt="Jamaica" title="Jamaica" href="#" coords="503,643,528,657" shape="rect">
-        <area target="_self" alt="Cuba" title="Cuba" href="#" coords="448,630,468,631,510,636,537,626,535,618,484,607,466,608,451,618" shape="poly">
-        <area target="_self" alt="Haiti" title="Haiti" href="#" coords="560,619,562,625,563,638,540,639,546,617" shape="poly">
-        <area target="_self" alt="Republic Dominica" title="Republic Dominica" href="#" coords="559,614,563,624,563,639,589,629,589,615" shape="poly">
-        <area target="_self" alt="Puerto Rico" title="Puerto Rico" href="#" coords="594,616,617,633" shape="rect">
+        <area 
+            target="_self" alt="Greenland" title="Greenland" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Greenland'}) }}" 
+            coords="413,18,389,30,372,65,369,89,369,109,371,122,389,129,444,164,515,220,549,200,517,79,476,45"
+        >
+        <area 
+            target="_self" alt="United States" title="United States"  shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'United States'}) }}" 
+            coords="182,368,169,376,156,420,151,444,151,461,162,505,187,527,204,528,229,543,251,545,254,542,268,543,281,564,291,572,293,564,300,562,310,568,316,580,323,595,338,599,403,569,477,595,486,583,543,383,526,375,520,372,512,362,504,365,506,380,500,390,479,399,468,418,458,422,461,428,435,443,437,432,435,412,417,404,348,394,291,393,246,385"
+        >
+        <area 
+            target="_self" alt="Mexico" title="Mexico" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Mexico'}) }}" 
+            coords="187,528,202,581,239,633,264,624,276,644,275,657,293,679,316,688,357,698,391,704,389,697,393,687,400,683,394,675,397,670,410,666,414,660,422,667,424,630,414,629,397,636,391,660,382,662,366,667,354,664,341,647,342,641,336,633,337,600,323,594,309,567,301,563,293,565,292,573,280,565,267,544,254,542,252,545,229,544,205,529" 
+        >
+        <area 
+            target="_self" alt="Guatemala" title="Guatemala" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Guatemala'}) }}" 
+            coords="409,667,411,683,420,686,413,693,413,699,408,706,392,705,389,696,392,687,400,683,395,675,397,668"
+        >
+        <area 
+            target="_self" alt="Belize" title="Belize" shape="poly"
+            href="{{ path('app_country_detail', {countryName: 'Belize'}) }}" 
+            coords="414,660,409,666,411,682,417,683,420,673" 
+        >
+        <area 
+            target="_self" alt="Salvador" title="Salvador" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'El Salvador'}) }}" 
+            coords="413,700,407,705,415,711,428,708,425,703" 
+        >
+        <area 
+            target="_self" alt="Honduras" title="Honduras" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Honduras'}) }}" 
+            coords="420,688,414,693,413,699,425,703,428,708,431,711,438,701,443,698,448,690,454,691,461,685,453,680,437,680,424,683" 
+        >
+        <area 
+            target="_self" alt="Nicaragua" title="Nicaragua" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Nicaragua'}) }}" 
+            coords="430,711,446,726,465,726,464,692,461,685,455,690,449,690,445,696,438,700" 
+        >
+        <area 
+            target="_self" alt="Costa Rica" title="Costa Rica" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Costa Rica'}) }}" 
+            coords="447,727,446,734,453,739,468,749,476,748,474,742,476,734,464,725" 
+        >
+        <area 
+            target="_self" alt="Panama" title="Panama" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Panama'}) }}" 
+            coords="476,734,474,741,476,748,486,752,492,756,499,752,520,750,523,742,522,735,513,729" 
+        >
+        <area 
+            target="_self" alt="Jamaica" title="Jamaica" shape="rect" 
+            href="{{ path('app_country_detail', {countryName: 'Jamaica'}) }}" 
+            coords="503,643,528,657" 
+        >
+        <area 
+            target="_self" alt="Cuba" title="Cuba" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Cuba'}) }}" 
+            coords="448,630,468,631,510,636,537,626,535,618,484,607,466,608,451,618" 
+        >
+        <area 
+            target="_self" alt="Haiti" title="Haiti" shape="poly"
+            href="{{ path('app_country_detail', {countryName: 'Haiti'}) }}" 
+            coords="560,619,562,625,563,638,540,639,546,617" 
+        >
+        <area 
+            target="_self" alt="Dominican Republic" title="Dominican Republic" shape="poly" 
+            href="{{ path('app_country_detail', {countryName: 'Dominican Republic'}) }}" 
+            coords="559,614,563,624,563,639,589,629,589,615" 
+        >
+        <area 
+            target="_self" alt="Puerto Rico" title="Puerto Rico" shape="rect" 
+            href="{{ path('app_country_detail', {countryName: 'Puerto Rico'}) }}" 
+            coords="594,616,617,633" 
+        >
     </map>
 </div>
 {% endblock %}
